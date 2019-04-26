@@ -35,6 +35,7 @@ class Form extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     this.props.fetchPatient(this.state);
   }
 

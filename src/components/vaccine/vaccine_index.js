@@ -4,10 +4,14 @@ import "./vaccine_index.scss";
 
 class VaccineIndex extends Component {
   render() {
+    const mapVaccines = this.props.vaccines.map((vaccine) => (
+      <VaccineIndexItem vaccine={vaccine} type={this.props.type} />
+    ))
+
     return (
       <section className="vaccine-index">
         <ul className="vaccine-list">
-          < VaccineIndexItem vaccine={{ name: "Hello" }} type={this.props.type} />
+          {mapVaccines}
         </ul>
       </section>
     )

@@ -1,5 +1,5 @@
 export const upcomingDates = (vaccines) => {
-  return Object.values(vaccines).filter(vaccine => vaccine.date > Date.now());
+  return vaccines.filter((vaccine) => vaccine['next dose(s)'][0].seconds < Date.now());
 };
 
 export const previousDates = (vaccines) => {
