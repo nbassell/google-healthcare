@@ -4,6 +4,7 @@ import './vaccine_index_item.scss';
 class VaccineIndexItem extends Component {
   render() {
     const { vaccine, type } = this.props;
+    debugger
 
     let color = "";
     if (type === "previous") color = "green";
@@ -17,6 +18,9 @@ class VaccineIndexItem extends Component {
           </div>
         </div>
         <div className="vaccine-list-item-info">
+          <p className='vaccine-date'> 
+            {vaccine.date}
+          </p>
           <p className="vaccine-name">
             {vaccine.name}
           </p>

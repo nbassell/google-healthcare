@@ -17,11 +17,10 @@ export const receiveVaccination = (vaccination) => {
 }
 
 export const fetchPatient = ({name}) => dispatch => {
-  debugger
   db.collection('patients').where("name", "==", name).get()
     .then((snapshot) => {
       snapshot.forEach((doc) => {
-        debugger
+    
         dispatch(receivePatient(doc.data()));
 
         try {
