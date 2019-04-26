@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPatient } from '../actions/patient_action';
+import { db } from '../firebase/firebase';
 import './form.scss';
 
 class Form extends Component {
@@ -11,6 +12,20 @@ class Form extends Component {
     this.changeInput = this.changeInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+    db.collection('patients').get()
+      .then((snapshot) => {
+        debugger
+        snapshot.forEach((doc) => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch((err) => {
+        console.log('Error getting documents', err);
+      });
+  }
+
 
   changeInput(field) {
     return (e) => {
