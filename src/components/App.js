@@ -9,11 +9,11 @@ function App() {
   return (
     <>
       <Form />
+      <Previous />
+      <div className="vaccine-list-item-node fade green-to-red"></div>
       <PastDue />
       <div className="vaccine-list-item-node fade red-to-yellow"></div>
       <Upcoming />
-      <div className="vaccine-list-item-node fade yellow-to-green"></div>
-      <Previous />
     </>
   );
 }
