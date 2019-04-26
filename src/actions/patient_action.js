@@ -21,6 +21,7 @@ export const receiveVaccinations = (vaccinations) => {
 export const fetchPatient = ({name}) => dispatch => {
   return db.collection('patients').where("name", "==", name).get()
     .then((snapshot) => {
+      if (snapshot.docs.length === 0 ) dispatch(stopLoading());
       snapshot.forEach((doc) => {
         dispatch(receivePatient(doc.data()));
         fetchVaccinations(dispatch)(doc.data().vaccinations);
@@ -28,6 +29,7 @@ export const fetchPatient = ({name}) => dispatch => {
     })
     .catch((err) => {
       console.log('Error getting documents', err);
+      debugger
     });
 }
 
