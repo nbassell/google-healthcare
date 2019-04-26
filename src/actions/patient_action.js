@@ -1,4 +1,4 @@
-import * as TrackAPI from "../utils/patient_util";
+import { db } from '../firebase/firebase';
 export const RECEIVE_PATIENT = "RECEIVE_PATIENT";
 
 export const receiveTrack = (patient) => {
@@ -10,8 +10,15 @@ export const receiveTrack = (patient) => {
 
 export const fetchPatient = patient => {
   return dispatch => {
-    return TrackAPI.fetchPatient(patient).then( (patient) => {
-        return dispatch(receiveTrack(patient));
+    db.collection('patients').get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch((err) => {
+        console.log('Error getting documents', err);
       });
+
   };
 };

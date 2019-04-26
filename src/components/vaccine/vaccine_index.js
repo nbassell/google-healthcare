@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import VaccineIndexItem from './vaccine_index_item';
+import { db } from '../../firebase/firebase';
 import "./vaccine_index.scss";
 
 class VaccineIndex extends Component {
-  render() {
-    const vaccines = Object.values(this.props.vaccines).map((vaccine) => {
-      return < VaccineIndexItem vaccine={vaccine} />
-    });
+  componentDidMount() {
+    db.collection('patients').get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          console.log(doc.id, '=>', doc.data());
+        });
+      })
+      .catch((err) => {
+        console.log('Error getting documents', err);
+      });
+  }
 
+  render() {
     return (
       <section className="vaccine-index">
         <ul className="vaccine-list">
           < VaccineIndexItem vaccine={{ name: "Hello" }} />
-          {vaccines}
+          {/* {vaccines} */}
         </ul>
         <div className="vaccine-list-item-node fade">
         </div>
@@ -24,6 +33,5 @@ class VaccineIndex extends Component {
     )
   }
 }
-
 
 export default VaccineIndex;
