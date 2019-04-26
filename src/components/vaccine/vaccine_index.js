@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import VaccineIndexItem from './vaccine_index_item';
 import "./vaccine_index.scss";
 
 class VaccineIndex extends Component {
   render() {
-    const vaccines = Object.values(this.props.vaccines).map((vaccine) => {
-      return < VaccineIndexItem vaccine={vaccine} />
+    const vaccines = this.props.vaccines.map((vaccine) => {
+      return < VaccineIndexItem vaccine={vaccine} type={this.props.type}/>
     });
 
     return (

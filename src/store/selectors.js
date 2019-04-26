@@ -9,3 +9,9 @@ export const previousDates = (vaccines) => {
     vaccine.date < Date.now();
   })
 }
+
+export const pastDueDates = (vaccines) => {
+  return Object.values(vaccines).filter((vaccine) => {
+    !vaccine.date
+  })
+}
