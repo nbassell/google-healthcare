@@ -8,9 +8,8 @@ class VaccineIndex extends Component {
   }
 
   render() {
-
-    const vaccines = Object.values(this.props.vaccines).map((vaccine, id) => {
-      < VaccineIndexItem vaccine={vaccine} key={id} />
+    const vaccines = Object.values(this.props.vaccines).map( (vaccine) => {
+      return < VaccineIndexItem vaccine={vaccine} />
     });
     
     return (
@@ -25,7 +24,7 @@ class VaccineIndex extends Component {
 
 const msp = (state) => {
   return {
-    vaccine: state.vaccines,
+    vaccines: state.vaccines,
   }
 }
 

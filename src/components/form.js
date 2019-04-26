@@ -8,29 +8,30 @@ class Form extends Component {
     super(props);
     this.state = { firstName: "", lastName: "" };
     this.changeInput = this.changeInput.bind(this);
-    this.submitPatient = this.submitPatient.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   changeInput(field) {
     return (e) => {
-      debugger
       this.setState({ [field]: e.target.value });
     }
   }
 
-  submitPatient(e) {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.fetchPatient(this.state);
   }
 
   render() {
     return (
-      <form onSubmit={this.submitPatient} >
+      <form onSubmit={this.handleSubmit} >
         <input type="text" placeholder="first name" value={this.state.firstName}
         onChange={this.changeInput("firstName")} />
 
         <input type="text" placeholder="last name" value={this.state.lastName}
         onChange={this.changeInput("lastName")} />
+
+        <button className="form-button"></button>
       </form>
     )
   }
