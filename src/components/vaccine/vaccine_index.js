@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 import VaccineIndexItem from './vaccine_index_item';
-import { db } from '../../firebase/firebase';
 import "./vaccine_index.scss";
 
 class VaccineIndex extends Component {
-  componentDidMount() {
-    db.collection('patients').get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          console.log(doc.id, '=>', doc.data());
-        });
-      })
-      .catch((err) => {
-        console.log('Error getting documents', err);
-      });
-  }
-
   render() {
+    const mapVaccines = this.props.vaccines.map((vaccine) => (
+      <VaccineIndexItem vaccine={vaccine} type={this.props.type} />
+    ))
+
     return (
       <section className="vaccine-index">
         <ul className="vaccine-list">
-          < VaccineIndexItem vaccine={{ name: "Hello" }} type={this.props.type} />
+          {mapVaccines}
         </ul>
       </section>
     )

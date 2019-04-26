@@ -5,8 +5,6 @@ class VaccineIndexItem extends Component {
   render() {
     const { vaccine, type } = this.props;
 
-    console.log(type);
-
     let color = "";
     if (type === "previous") color = "green";
     else if (type === "upcoming") color = "yellow";

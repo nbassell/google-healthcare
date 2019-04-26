@@ -1,24 +1,42 @@
 import { db } from '../firebase/firebase';
 export const RECEIVE_PATIENT = "RECEIVE_PATIENT";
+export const RECEIVE_VACCINATION = "RECEIVE_VACCINATION";
 
-export const receiveTrack = (patient) => {
+export const receivePatient = (patient) => {
   return {
     type: RECEIVE_PATIENT,
     patient,
   };
 };
 
-export const fetchPatient = patient => {
-  return dispatch => {
-    db.collection('patients').get()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          console.log(doc.id, '=>', doc.data());
-        });
-      })
-      .catch((err) => {
-        console.log('Error getting documents', err);
-      });
+export const receiveVaccination = (vaccination) => {
+  return {
+    type: RECEIVE_VACCINATION,
+    vaccination,
+  }
+}
 
-  };
-};
+export const fetchPatient = ({name}) => dispatch => {
+  debugger
+  db.collection('patients').where("name", "==", name).get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        debugger
+        dispatch(receivePatient(doc.data()));
+
+        try {
+          for (let key in doc.data().vaccinations) {
+            doc.data().vaccinations[key].get()
+              .then((vaccination) => {
+                dispatch(receiveVaccination(vaccination.data()));
+              });
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      })
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err);
+    });
+}
