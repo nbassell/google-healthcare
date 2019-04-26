@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import VaccineIndexItem from './vaccine_index_item';
 import { db } from '../../firebase/firebase';
 import "./vaccine_index.scss";
