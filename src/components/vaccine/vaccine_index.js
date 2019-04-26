@@ -22,10 +22,5 @@ class VaccineIndex extends Component {
   }
 }
 
-const msp = (state) => {
-  return {
-    vaccines: state.vaccines,
-  }
-}
 
-export default connect(msp, null)(VaccineIndex)
+export default VaccineIndex;
