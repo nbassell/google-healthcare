@@ -11,15 +11,16 @@ export const upcomingDates = (vaccines) => {
 
   result.sort((a, b) => a.date - b.date);
 
-  return result.map(vaccine => merge(vaccine, { date: moment.unix(vaccine.date).calendar()}));
+  return result.map(vaccine => merge(vaccine, { date: moment.unix(vaccine.date).calendar() }));
 };
 
 export const previousDates = (vaccines) => {
-  const previous = vaccines.filter((vaccine) => vaccine['previous dose(s)'] && vaccine['previous dose(s)'][0] && vaccine['previous dose(s)'][0].seconds < Date.now());
+  const previous = vaccines.filter((vaccine) => vaccine['previous dose(s)'] && vaccine['previous dose(s)'][0] &&
+    vaccine['previous dose(s)'][0].seconds < Date.now());
   let result = [];
-  
+
   for (let vaccine of previous) {
-    result = result.concat(vaccine['next dose(s)'].map(timeObj => ({ name: vaccine.name, date: timeObj.seconds })));
+    result = result.concat(vaccine['previous dose(s)'].map(timeObj => ({ name: vaccine.name, date: timeObj.seconds })));
   }
 
   result.sort((a, b) => a.date - b.date);
@@ -27,6 +28,6 @@ export const previousDates = (vaccines) => {
   return result.map(vaccine => merge(vaccine, { date: moment.unix(vaccine.date).calendar() }));
 };
 
-export const pastDueDates = (vaccines) => {
-  return [{ name: 'Today', date: moment(Date.now()).format("MMM Do YYYY")}];
+export const pastDueDates = () => {
+  return [{ name: 'Today', date: moment(Date.now()).format("MMM Do YYYY") }];
 };

@@ -1,5 +1,5 @@
 .loader {
-  color: blue;
+  color: #4285F4;
   font-size: 20px;
   margin: 100px auto;
   width: 1em;
@@ -66,4 +66,20 @@
   87.5% {
     box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
   }
+}
+
+.no-data {
+  margin-top: 20px;  
+  padding: 20px;
+  text-align: center;
+}
+
+.no-data p {
+  width: 300px;
+  margin: 0 auto;
+}
+
+img {
+  margin-top: 20px;
+  width: 200px;
 }

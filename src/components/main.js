@@ -8,12 +8,15 @@ import PastDue from './vaccine/pastdue_vaccines';
 function Main(props) {
   if (props.loading) {
     return (
-      <div class="loader"></div>
+      <div className="loader"></div>
     )
   }
 
   if (!props.vaccines.length) return (
-    <img src='/no_data2.png'></img>
+    <div className='no-data' >
+      <p>No data yet! Please search for a patient. E.g. Tommy Pickles</p>
+      <img src='/no_data2.png' alt='no data'></img>
+    </div>
   );
   return (
     <>

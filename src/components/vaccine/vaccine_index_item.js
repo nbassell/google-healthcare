@@ -4,8 +4,7 @@ import './vaccine_index_item.scss';
 class VaccineIndexItem extends Component {
   render() {
     const { vaccine, type } = this.props;
-    debugger
-
+    
     let color = "";
     if (type === "previous") color = "green";
     else if (type === "upcoming") color = "yellow";
