@@ -27,9 +27,9 @@ class Form extends Component {
     return (
       <form onSubmit={this.handleSubmit} id='search-form'>
         <input type="text" placeholder="Enter patient name" value={this.state.name}
-        onChange={this.changeInput("name")} />
+          onChange={this.changeInput("name")} />
 
-        <button className="form-button"><i class="material-icons">search</i></button>
+        <button className="form-button"><i className="material-icons">search</i></button>
       </form>
     )
   }

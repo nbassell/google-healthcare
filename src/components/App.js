@@ -7,7 +7,7 @@ import VaccineIndex from './vaccine/vaccine_index';
 function App() {
   return (
     <>
-        <Route exact path="/" component={Form} />
+      <Route exact path="/" component={Form} />
       <Switch>
         <Route path="/upcoming" component={VaccineIndex} />
       </Switch>
