@@ -1,10 +1,10 @@
 import VaccineIndex from './vaccine_index';
-import { upComingDates } from '../../store/selectors';
+import { upcomingDates } from '../../store/selectors';
 import { connect } from 'react-redux';
 
 const msp = (state) => {
   return {
-    vaccines: upComingDates(state.vaccines),
+    vaccines: upcomingDates(state.vaccines),
     type: "upcoming",
   }
 }

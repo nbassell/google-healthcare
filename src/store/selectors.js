@@ -1,4 +1,4 @@
-export const upComingDates = (vaccines) => {
+export const upcomingDates = (vaccines) => {
   return Object.values(vaccines).filter(vaccine => vaccine.date > Date.now());
 };
 
