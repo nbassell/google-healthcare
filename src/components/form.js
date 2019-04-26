@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPatient } from '../actions/patient_action';
+import { fetchPatient, receiveLoading, stopLoading } from '../actions/patient_action';
 import './form.scss';
 
 class Form extends Component {
@@ -20,6 +20,7 @@ class Form extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.receiveLoading();
     this.props.fetchPatient(this.state);
   }
 
@@ -38,6 +39,8 @@ class Form extends Component {
 const mdp = (dispatch) => {
   return {
     fetchPatient: patient => dispatch(fetchPatient(patient)),
+    receiveLoading: () => dispatch(receiveLoading()),
+    stopLoading: () => dispatch(stopLoading()),
   }
 }
 
