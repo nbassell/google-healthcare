@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#search-form {
+  position: fixed;
+  align-items: center;  
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  box-sizing: border-box;
+
+  .form-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  input[type='text'] {
+    font-size: 18px;
+    transition: font-size 0.125s;
+    flex-grow: 1;
+    padding: 5px;
+    height: 40px;
+    background-color: transparent;
+
+    &:focus {
+      font-size: 24px;
+    }
+  }
+}

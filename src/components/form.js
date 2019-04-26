@@ -2,11 +2,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPatient } from '../actions/patient_action';
+import './form.scss';
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { firstName: "", lastName: "" };
+    this.state = { name: "" };
     this.changeInput = this.changeInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,14 +25,11 @@ class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} >
-        <input type="text" placeholder="first name" value={this.state.firstName}
-        onChange={this.changeInput("firstName")} />
+      <form onSubmit={this.handleSubmit} id='search-form'>
+        <input type="text" placeholder="Enter patient name" value={this.state.name}
+        onChange={this.changeInput("name")} />
 
-        <input type="text" placeholder="last name" value={this.state.lastName}
-        onChange={this.changeInput("lastName")} />
-
-        <button className="form-button"></button>
+        <button className="form-button"><i class="material-icons">search</i></button>
       </form>
     )
   }

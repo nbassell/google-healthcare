@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, h3, p, form,
@@ -8,7 +10,7 @@ span, article, footer, time, small {
   border: 0;
   outline: 0;
   font: inherit;
-  font-family: "Montserrat";
+  font-family: "Roboto";
   font-weight: 400;
   text-align: inherit;
   text-decoration: inherit;
@@ -30,3 +32,4 @@ button, input[type="submit"], i {
   cursor: pointer;
   background-color: inherit;
 }
+
