@@ -1,6 +1,7 @@
 import { db } from '../firebase/firebase';
 export const RECEIVE_PATIENT = "RECEIVE_PATIENT";
 export const RECEIVE_VACCINATIONS = "RECEIVE_VACCINATIONS";
+export const REMOVE_VACCINATIONS = "REMOVE_VACCINATIONS";
 export const RECEIVE_LOADING = "RECEIVE_LOADING";
 export const STOP_LOADING = "STOP_LOADING";
 
@@ -18,9 +19,16 @@ export const receiveVaccinations = (vaccinations) => {
   }
 }
 
+export const removeVaccinations = () => {
+  return {
+    type: REMOVE_VACCINATIONS,
+  }
+}
+
 export const fetchPatient = ({name}) => dispatch => {
   return db.collection('patients').where("name", "==", name).get()
     .then((snapshot) => {
+      dispatch(removeVaccinations());
       if (snapshot.docs.length === 0 ) dispatch(stopLoading());
       snapshot.forEach((doc) => {
         dispatch(receivePatient(doc.data()));
@@ -29,7 +37,6 @@ export const fetchPatient = ({name}) => dispatch => {
     })
     .catch((err) => {
       console.log('Error getting documents', err);
-      debugger
     });
 }
 

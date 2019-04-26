@@ -1,4 +1,4 @@
-import { RECEIVE_VACCINATIONS } from '../actions/patient_action';
+import { RECEIVE_VACCINATIONS, REMOVE_VACCINATIONS } from '../actions/patient_action';
 
 export default (state = [], action) => {
   Object.freeze(state);
@@ -6,6 +6,8 @@ export default (state = [], action) => {
   switch (action.type) {
     case RECEIVE_VACCINATIONS:
       return action.vaccinations;
+    case REMOVE_VACCINATIONS:
+      return [];
     default:
       return state;
   }
