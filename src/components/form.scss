@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#search-form {
+  position: fixed;
+  align-items: center;  
+  padding: 10px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+  0 1px 2px rgba(0, 0, 0, 0.24);
+  display: flex;
+  box-sizing: border-box;
+
+  .form-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  input[type='text'] {
+    font-size: 18px;
+    transition: font-size 0.125s;
+    flex-grow: 1;
+    padding: 5px;
+    height: 40px;
+    background-color: transparent;
+
+    &:focus {
+      font-size: 24px;
+    }
+  }
+}
