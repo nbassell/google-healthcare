@@ -1,13 +1,11 @@
-import { RECEIVE_VACCINATION, RECEIVE_PATIENT } from '../actions/patient_action';
+import { RECEIVE_VACCINATIONS } from '../actions/patient_action';
 
 export default (state = [], action) => {
   Object.freeze(state);
   
   switch (action.type) {
-    case RECEIVE_VACCINATION:
-      return state.concat(action.vaccination);
-    case RECEIVE_PATIENT:
-      return [];
+    case RECEIVE_VACCINATIONS:
+      return action.vaccinations;
     default:
       return state;
   }
