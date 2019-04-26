@@ -7,10 +7,10 @@ import VaccineIndex from './vaccine/vaccine_index';
 function App() {
   return (
     <>
-      <Switch>
-        <Route exact path="/" component={Form} />
+      {/* <Switch> */}
+        <Route path="/" component={Form} />
         <Route path="/patient/:name" component={VaccineIndex} />
-      </Switch>
+      {/* </Switch> */}
     </>
   );
 }
