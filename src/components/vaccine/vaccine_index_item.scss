@@ -12,7 +12,6 @@
   &.fade {
     height: 30px;
     background-color: transparent;
-    // background-image: linear-gradient(#0F9D58, transparent);
   }
 
   .vaccine-list-item-circle {
@@ -27,6 +26,15 @@
 
 .vaccine-list-item-info {
   padding: 20px 0;
+}
+
+.fade {
+  &.red-to-yellow {
+    background-image: linear-gradient(#DB4437, #F4B400);
+  }
+  &.yellow-to-green {
+    background-image: linear-gradient(#F4B400, #0F9D58);
+  }
 }
 
 .green {

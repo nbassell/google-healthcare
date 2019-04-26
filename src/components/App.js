@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
 import './App.css';
 import Form from './form'
 import Previous from './vaccine/previous_vaccines';
@@ -9,12 +8,12 @@ import PastDue from './vaccine/pastdue_vaccines';
 function App() {
   return (
     <>
-      <Route exact path="/" component={Form} />
-      <Switch>
-        <Route path="/pastdue" component={PastDue} />
-        <Route path="/upcoming" component={Upcoming} />
-        <Route path="/previous" component={Previous} />
-      </Switch>
+      <Form />
+      <PastDue />
+      <div className="vaccine-list-item-node fade red-to-yellow"></div>
+      <Upcoming />
+      <div className="vaccine-list-item-node fade yellow-to-green"></div>
+      <Previous />
     </>
   );
 }

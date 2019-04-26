@@ -20,14 +20,8 @@ class VaccineIndex extends Component {
     return (
       <section className="vaccine-index">
         <ul className="vaccine-list">
-          < VaccineIndexItem vaccine={{ name: "Hello" }} />
-          {/* {vaccines} */}
+          < VaccineIndexItem vaccine={{ name: "Hello" }} type={this.props.type} />
         </ul>
-        <div className="vaccine-list-item-node fade">
-        </div>
-        <p className='end-schedule'>
-          End of the schedule.
-        </p>
       </section>
     )
   }
