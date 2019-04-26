@@ -17,9 +17,9 @@ export const upcomingDates = (vaccines) => {
 export const previousDates = (vaccines) => {
   const previous = vaccines.filter((vaccine) => vaccine['previous dose(s)'] && vaccine['previous dose(s)'][0] && vaccine['previous dose(s)'][0].seconds < Date.now());
   let result = [];
-  
+
   for (let vaccine of previous) {
-    result = result.concat(vaccine['next dose(s)'].map(timeObj => ({ name: vaccine.name, date: timeObj.seconds })));
+    result = result.concat(vaccine['previous dose(s)'].map(timeObj => ({ name: vaccine.name, date: timeObj.seconds })));
   }
 
   result.sort((a, b) => a.date - b.date);

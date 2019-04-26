@@ -8,12 +8,12 @@ import PastDue from './vaccine/pastdue_vaccines';
 function Main(props) {
   if (props.loading) {
     return (
-      <div class="loader"></div>
+      <div className="loader"></div>
     )
   }
 
   if (!props.vaccines.length) return (
-    <img src='/no_data2.png'></img>
+    <img className='no-data' src='/no_data2.png'></img>
   );
   return (
     <>
