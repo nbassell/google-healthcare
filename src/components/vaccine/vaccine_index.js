@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchVaccine } from '../../actions/patient_action';
-import TrackIndexItem from './track_index_item';
+import VaccineIndexItem from './vaccine_index_item';
 
-class VaccineIndex extends React.Component {
+class VaccineIndex extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
 
-    const vaccines = Object.values(this.props.vaccines).map((vaccine) => {
-      < VaccineIndexItem vaccine={vaccine} />
+    const vaccines = Object.values(this.props.vaccines).map((vaccine, id) => {
+      < VaccineIndexItem vaccine={vaccine} key={id} />
     });
     
     return (
