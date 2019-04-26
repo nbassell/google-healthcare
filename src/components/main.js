@@ -13,7 +13,10 @@ function Main(props) {
   }
 
   if (!props.vaccines.length) return (
-    <img className='no-data' src='/no_data2.png'></img>
+    <div className='no-data' >
+      <p>No data yet! Please search for a patient. E.g. Tommy Pickles</p>
+      <img src='/no_data2.png' alt='no data'></img>
+    </div>
   );
   return (
     <>
